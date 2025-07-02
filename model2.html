@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarun Krishna Padamati | Portfolio</title>
+  <style>
+    :root {
+      --primary: #22223b;
+      --secondary: #4a4e69;
+      --accent: #9a8c98;
+      --background: #f2e9e4;
+      --light: #fff;
+      --dark: #22223b;
+      --circle-size: 56px;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--background);
+      color: var(--dark);
+      min-height: 100vh;
+      transition: background 0.3s, color 0.3s;
+    }
+    .theme-switch {
+      position: absolute;
+      top: 18px;
+      right: 28px;
+      z-index: 1001;
+    }
+    .menu {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 90px;
+      height: 100vh;
+      background: var(--primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 40px;
+      z-index: 1002;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.08);
+    }
+    .menu li {
+      list-style: none;
+      margin: 18px 0;
+      width: var(--circle-size);
+      height: var(--circle-size);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 50%;
+      background: var(--secondary);
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border: 3px solid transparent;
+      position: relative;
+    }
+    .menu li.active,
+    .menu li:hover {
+      background: var(--accent);
+      border-color: var(--light);
+    }
+    .menu img {
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
+    .menu li span {
+      display: none;
+      position: absolute;
+      left: 70px;
+      background: var(--light);
+      color: var(--dark);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      white-space: nowrap;
+      z-index: 10;
+    }
+    .menu li:hover span {
+      display: block;
+    }
+    .content {
+      margin-left: 120px;
+      padding: 40px 32px;
+      max-width: 900px;
+      min-height: 100vh;
+      transition: background 0.3s, color 0.3s;
+    }
+    section {
+      display: none;
+      animation: fadein 0.4s;
+    }
+    section.active-section {
+      display: block;
+    }
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: none;}
+    }
+    h2 {
+      margin-top: 0;
+      color: var(--secondary);
+      transition: color 0.3s;
+    }
+    body.dark-mode h2 {
+      color: #fede00;
+    }
+    .profile-img {
+      display: block;
+      margin: 0 auto 18px auto;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 6px solid #FEDE00;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    }
+    .btn {
+      display: inline-block;
+      background: var(--secondary);
+      color: var(--light);
+      padding: 10px 22px;
+      border-radius: 6px;
+      text-decoration: none;
+      margin-top: 16px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background: var(--accent);
+      color: var(--dark);
+    }
+    .gallery-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .gallery-row img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .social-icons {
+      margin-top: 16px;
+    }
+    .social-icons a {
+      margin: 0 8px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .social-icons img {
+      width: 28px;
+      height: 28px;
+    }
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      color: #888;
+      font-size: 15px;
+    }
+    @media (max-width: 700px) {
+      .menu {
+        width: 56px;
+        padding-top: 18px;
+      }
+      .content {
+        margin-left: 70px;
+        padding: 20px 10px;
+      }
+      .menu li span {
+        left: 60px;
+        font-size: 13px;
+      }
+      .profile-img {
+        width: 90px;
+        height: 90px;
+      }
+      .gallery-row img {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="theme-switch">
+    <label>
+      <input type="checkbox" id="themeToggle"> Light Mode
+    </label>
+  </div>
+  <ul class="menu">
+    <li data-section="home" class="active" title="Home">
+      <img src="data:image/svg+xml;utf8,<svg fill='none' stroke='white' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M3 12l9-9 9 9M4 10v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V10'></path></svg>" alt="Home">
+      <span>Home</span>
+    </li>
+    <li data-section="about" title="About">
+      <img src="data:image/svg+xml;utf8,<svg fill='none' stroke='white' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='7' r='4'/><path d='M5.5 21a8.38 8.38 0 0113 0'></path></svg>" alt="About">
+      <span>About</span>
+    </li>
+    <li data-section="skills" title="Skills">
+      <img src="data:image/svg+xml;utf8,<svg fill='none' stroke='white' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M4 20l1.5-5.5L18 4a2.828 2.828 0 114 4L9.5 18.5 4 20z'></path><path d='M14 7l3 3'></path></svg>" alt="Skills">
+      <span>Skills</span>
+    </li>
+    <li data-section="nature-photography" title="Nature Photography">
+      <img src="data:image/svg+xml;utf8,<svg fill='none' stroke='white' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M21 21H3V3h18v18z' stroke-linecap='round' stroke-linejoin='round'/><path d='M16 11a4 4 0 11-8 0 4 4 0 018 0z' stroke-linecap='round' stroke-linejoin='round'/></svg>" alt="Nature">
+      <span>Nature</span>
+    </li>
+    <li data-section="projects-gallery" title="Project Photos">
+      <img src="data:image/svg+xml;utf8,<svg fill='none' stroke='white' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><rect x='3' y='7' width='18' height='13' rx='2'/><circle cx='12' cy='13.5' r='4'/><path d='M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2'></path></svg>" alt="Project Gallery">
+      <span>Project Photos</span>
+    </li>
+    <li data-section="projects" title="Projects">
+      <img src="data:image/svg+xml;utf8,<svg fill='none' stroke='white' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M3 7a2 2 0 012-2h3.172a2 2 0 011.414.586l1.828 1.828A2 2 0 0012.828 8H19a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V7z'></path></svg>" alt="Projects">
+      <span>Projects</span>
+    </li>
+    <li data-section="experience" title="Experience">
+      <img src="data:image/svg+xml;utf8,<svg fill='none' stroke='white' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><rect x='2' y='7' width='20' height='14' rx='2'/><path d='M16 3v4M8 3v4'></path></svg>" alt="Experience">
+      <span>Experience</span>
+    </li>
+    <li data-section="achievements" title="Achievements">
+      <img src="data:image/svg+xml;utf8,<svg fill='none' stroke='white' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='8' r='7'/><path d='M8.21 13.89l-1.42 4.24a1 1 0 001.3 1.3l4.24-1.42'></path></svg>" alt="Achievements">
+      <span>Achievements</span>
+    </li>
+    <li data-section="gallery" title="Gallery">
+      <img src="data:image/svg+xml;utf8,<svg fill='none' stroke='white' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><rect x='3' y='7' width='18' height='13' rx='2'/><circle cx='12' cy='13.5' r='4'/><path d='M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2'></path></svg>" alt="Gallery">
+      <span>Gallery</span>
+    </li>
+    <li data-section="contact" title="Contact">
+      <img src="data:image/svg+xml;utf8,<svg fill='none' stroke='white' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><rect x='3' y='5' width='18' height='14' rx='2'/><path d='M3 7l9 6 9-6'></path></svg>" alt="Contact">
+      <span>Contact</span>
+    </li>
+  </ul>
+
+  <div class="content">
+    <section id="home" class="active-section">
+      <img src="proper pic.jpg" alt="Tarun Krishna Padamati" class="profile-img">
+      <h2>Tarun Krishna Padamati</h2>
+      <p>
+        <strong>Full Stack Web Developer | AI/ML Enthusiast | Builder of Real-World Solutions</strong><br>
+        I build robust, scalable, and innovative web applications that solve real-world problems.<br>
+        Explore my work, skills, and journey!
+      </p>
+      <ul>
+        <li>🌍 Based in India</li>
+        <li>🎓 Final-year B.Tech CSE (AI & ML), Kalasalingam Academy</li>
+        <li>💡 Focus: Full Stack Apps, AI/ML, EdTech, Web3, NLP</li>
+      </ul>
+      <a href="#" class="btn" id="resumeBtn">Download Resume</a>
+    </section>
+    <section id="about">
+      <h2>About Me</h2>
+      <img src="proper pic.jpg" alt="Tarun Krishna Padamati" class="profile-img" style="float:right; margin-left: 24px;">
+      <p>
+        I'm Tarun Krishna Padamati, a developer who believes in building with purpose and passion. My journey began with curiosity for technology and grew into a mission to create solutions that impact lives.
+      </p>
+      <ul>
+        <li>Started coding at 14, built my first website at 16.</li>
+        <li>Graduated top of my class in AI & ML, Kalasalingam Academy.</li>
+        <li>Interned at IIITDM Hyderabad and Elewayte (Wipro), building AI/ML pipelines and multilingual NLP systems.</li>
+        <li>Open to collaborations in AI, Web3, EdTech & NLP.</li>
+      </ul>
+      <p>
+        <strong>Philosophy:</strong> Code with purpose. Build with passion.
+      </p>
+    </section>
+    <section id="skills">
+      <h2>Skills & Tech Stack</h2>
+      <ul>
+        <li><strong>Programming Languages:</strong> Python, JavaScript, TypeScript, Java, SQL</li>
+        <li><strong>Frontend:</strong> React, Next.js, HTML5, CSS3, Tailwind, SASS</li>
+        <li><strong>Backend & DB:</strong> Node.js, Express.js, MongoDB, MySQL, Firebase, REST APIs</li>
+        <li><strong>AI/ML & Tools:</strong> TensorFlow, Scikit-learn, OpenCV, NLP, Streamlit</li>
+        <li><strong>DevOps:</strong> Docker, Git, GitHub Actions, Vercel, Netlify</li>
+        <li><strong>Design:</strong> Figma, UI/UX, Accessibility</li>
+      </ul>
+      <p>
+        <strong>Certifications:</strong>
+        <ul>
+          <li>Microsoft Certified: Azure AI Fundamentals</li>
+          <li>Google UX Design Professional Certificate</li>
+        </ul>
+      </p>
+    </section>
+    <!-- Nature Photography Section -->
+    <section id="nature-photography">
+      <h2>Nature Photography</h2>
+      <p>Capturing the beauty of the natural world through professional photography.</p>
+      <div class="gallery-row">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Lush Forest">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Mountain Lake">
+      </div>
+    </section>
+    <!-- Projects Gallery Section -->
+    <section id="projects-gallery">
+      <h2>Project Photos</h2>
+      <p>Visual highlights from my key projects.</p>
+      <div class="gallery-row">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Programming Workspace">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Laptop and Code">
+        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=400&q=80" alt="Farmer in Field">
+      </div>
+    </section>
+    <section id="projects">
+      <h2>Projects</h2>
+      <div>
+        <strong>1. 🧏♂️ Indian Sign Language to Text & Voice</strong>
+        <ul>
+          <li>Converts sign gestures into text and audio using Deep Learning & Computer Vision.</li>
+          <li>Tech: Python, OpenCV, NLP</li>
+          <li>Impact: Improved accessibility for the hearing impaired.</li>
+        </ul>
+        <strong>2. 🍛 Maan-Meal Business Platform</strong>
+        <ul>
+          <li>Connects farmers to customers directly, with UPI and Firebase integration.</li>
+          <li>Tech: HTML, JS, MySQL, Firebase</li>
+          <li>Impact: Supported 100+ local farmers, increased sales by 40%.</li>
+        </ul>
+        <strong>3. 🚌 AI Route Optimization App</strong>
+        <ul>
+          <li>Real-time bus route optimization for campus transport.</li>
+          <li>Tech: Python, React Native, Leaflet.js</li>
+          <li>Result: Reduced wait times by 30% for 3000+ students.</li>
+        </ul>
+        <strong>4. 📍 Routes for Roots</strong>
+        <ul>
+          <li>Route tracking and optimization for village access.</li>
+          <li>Tech: React, Node.js, MongoDB</li>
+        </ul>
+        <strong>5. 🧬 AI Diagnostic System</strong>
+        <ul>
+          <li>Detects medical anomalies from images using Streamlit & CNNs.</li>
+          <li>Tech: Python, Deep Learning, Streamlit</li>
+        </ul>
+      </div>
+      <div style="margin-top:20px;">
+        <iframe width="100%" height="220" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Project Demo" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </section>
+    <section id="experience">
+      <h2>Internships & Experience</h2>
+      <ul>
+        <li>
+          <strong>AI Developer Intern @ IIITDM Hyderabad (May 2025 – Present)</strong><br>
+          Building multilingual speech-to-text and NLP systems in regional Indian languages using transformers & DL models.
+        </li>
+        <li>
+          <strong>AI/ML Intern @ Elewayte Pvt Ltd (Wipro) (Jul 2024 – Aug 2024)</strong><br>
+          Built ML pipelines for traffic violation detection; worked with OpenCV and Python APIs.
+        </li>
+        <li>
+          <strong>Freelance Full Stack Developer</strong><br>
+          Built custom web platforms for education, e-commerce, and NGOs. Notable clients include EduBridge and GreenMarket.
+        </li>
+      </ul>
+      <p>
+        <strong>Key Achievements:</strong>
+        <ul>
+          <li>Reduced manual processing time by 60% with automation tools.</li>
+          <li>Published research on AI for timetable optimization.</li>
+          <li>Received "Outstanding Intern" award at Elewayte.</li>
+        </ul>
+      </p>
+    </section>
+    <section id="achievements">
+      <h2>Achievements</h2>
+      <ul>
+        <li>🏅 Microsoft AI Certified</li>
+        <li>🏆 Finalist - Vashisht Hackathon (2023)</li>
+        <li>🎓 Excellence & stipend – Elewayte Internship</li>
+        <li>💼 Internship – Bluestock as SDE</li>
+        <li>📃 Published Research – AI for Timetable Optimization</li>
+        <li>🌟 1st Place, NIT Trichy Webathon (2022)</li>
+        <li>📝 3 open-source contributions merged in 2024</li>
+      </ul>
+      <blockquote>
+        “Tarun is a problem-solver. His work on ISL translation helped us break barriers in accessibility.” – Elewayte Team
+      </blockquote>
+      <blockquote>
+        “He was quick to learn, quick to build, and focused on outcomes.” – Bluestock HR
+      </blockquote>
+    </section>
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Project Screenshot" style="width:100%;max-width:340px;margin-bottom:10px;border-radius:8px;">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Hackathon Certificate" style="width:100%;max-width:340px;margin-bottom:10px;border-radius:8px;">
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="AI Certificate" style="width:100%;max-width:340px;border-radius:8px;">
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        <strong>Email:</strong> tarunkiller300@gmail.com<br>
+        <strong>Phone:</strong> +91 9014393715 / 7731971596
+      </p>
+      <p>
+        <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tarun-krishna-padamati-2b66b7268/" target="_blank">linkedin.com/in/tarun-krishna-padamati-2b66b7268</a><br>
+        <strong>GitHub:</strong> <a href="https://github.com/KRISH1111k" target="_blank">github.com/KRISH1111k</a>
+      </p>
+      <form id="contactForm">
+        <label>Name:<br><input type="text" required></label><br>
+        <label>Email:<br><input type="email" required></label><br>
+        <label>Message:<br><textarea required></textarea></label><br>
+        <button type="submit" class="btn">Send</button>
+      </form>
+    </section>
+    <footer>
+      <p>&copy; 2025 Tarun Krishna Padamati. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/tarun-krishna-padamati-2b66b7268/" target="_blank" title="LinkedIn">
+          <img src="data:image/svg+xml;utf8,<svg fill='none' stroke='gray' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><rect x='2' y='2' width='20' height='20' rx='5'/><path d='M16 8a6 6 0 016 6v6h-4v-6a2 2 0 00-4 0v6h-4v-6a6 6 0 016-6z'/><circle cx='8' cy='8' r='2'/></svg>" alt="LinkedIn">
+        </a>
+        <a href="https://github.com/KRISH1111k" target="_blank" title="GitHub">
+          <img src="data:image/svg+xml;utf8,<svg fill='none' stroke='gray' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.74-.1-.26-.45-1.29.1-2.68 0 0 .84-.28 2.75 1.04A9.38 9.38 0 0112 6.84c.85.004 1.71.11 2.51.32 1.91-1.32 2.75-1.04 2.75-1.04.55 1.39.2 2.42.1 2.68.64.71 1.03 1.62 1.03 2.74 0 3.94-2.34 4.81-4.57 5.07.36.32.68.93.68 1.87 0 1.35-.01 2.44-.01 2.77 0 .27.18.58.69.48C19.13 20.58 22 16.76 22 12.26 22 6.58 17.52 2 12 2z'/></svg>" alt="GitHub">
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Theme toggle
+    document.getElementById('themeToggle').addEventListener('change', function() {
+      if (this.checked) {
+        document.body.classList.add('dark-mode');
+        document.body.style.background = '#22223b';
+        document.body.style.color = '#fff';
+        document.querySelector('.content').style.background = '#2d3142';
+      } else {
+        document.body.classList.remove('dark-mode');
+        document.body.style.background = '#f2e9e4';
+        document.body.style.color = '#22223b';
+        document.querySelector('.content').style.background = '';
+      }
+    });
+
+    // Menu click logic
+    document.querySelectorAll('.menu li').forEach(li => {
+      li.addEventListener('click', function() {
+        document.querySelectorAll('.menu li').forEach(li2 => li2.classList.remove('active'));
+        this.classList.add('active');
+        const sectionId = this.getAttribute('data-section');
+        document.querySelectorAll('.content section').forEach(sec => {
+          sec.classList.remove('active-section');
+        });
+        document.getElementById(sectionId).classList.add('active-section');
+      });
+    });
+
+    // Contact form handler
+    document.addEventListener('submit', function(e) {
+      if (e.target && e.target.id === 'contactForm') {
+        e.preventDefault();
+        alert("Message sent successfully!");
+      }
+    });
+
+    // Resume download (simulate)
+    document.getElementById('resumeBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      alert("Resume download feature coming soon!");
+    });
+  </script>
+</body>
+</html>

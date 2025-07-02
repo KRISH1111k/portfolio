@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarun Krishna Padamati| Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="theme-switch">
+    <label>
+      <input type="checkbox" id="themeToggle"> Dark Mode
+    </label>
+  </div>
+
+  <ul class="menu">
+    <div class="toggle"><ion-icon name="add-outline"></ion-icon></div>
+    <li style="--i:0;" class="active"><a href="#" data-section="home"><ion-icon name="home-outline"></ion-icon></a></li>
+    <li style="--i:1;"><a href="#" data-section="about"><ion-icon name="person-outline"></ion-icon></a></li>
+    <li style="--i:2;"><a href="#" data-section="skills"><ion-icon name="settings-outline"></ion-icon></a></li>
+    <li style="--i:3;"><a href="#" data-section="contact"><ion-icon name="mail-outline"></ion-icon></a></li>
+    <li style="--i:4;"><a href="#" data-section="projects"><ion-icon name="videocam-outline"></ion-icon></a></li>
+    <li style="--i:5;"><a href="#" data-section="experience"><ion-icon name="key-outline"></ion-icon></a></li>
+    <li style="--i:6;"><a href="#" data-section="achievements"><ion-icon name="game-controller-outline"></ion-icon></a></li>
+    <li style="--i:7;"><a href="#" data-section="gallery"><ion-icon name="camera-outline"></ion-icon></a></li>
+    <div class="indicator"></div>
+  </ul>
+
+  <div class="content">
+    <section id="home" class="active-section">
+      <h2>Tarun Krishna Padamati</h2>
+      <p>Full Stack Developer | AI/ML Enthusiast | SDE Intern @ Bluestock</p>
+      <p>I enjoy solving real-world problems using technology — from AI systems that improve accessibility to platforms that connect farmers to markets and optimize education logistics.</p>
+      <a href="resume.pdf" class="btn" download>Download Resume</a>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>Computer Science student at Kalasalingam University. Passionate about using technology to solve real-world problems. Skilled in full-stack development, AI, and innovative systems that help bridge gaps in communication, education, agriculture, and governance.</p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li><strong>Languages:</strong> Python, JavaScript, Java, TypeScript</li>
+        <li><strong>Web:</strong> HTML5, CSS3, React, AngularJS, Tailwind CSS</li>
+        <li><strong>AI/ML:</strong> OpenCV, NLP, Scikit-learn, Deep Learning</li>
+        <li><strong>Tools:</strong> GitHub, MySQL, VS Code, Figma, Streamlit</li>
+        <li><strong>Others:</strong> PDF Parsing, REST APIs, UI/UX, Deployment</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: chanti@example.com<br>Phone: +91-9876543210</p>
+      <p>LinkedIn: <a href="#">linkedin.com/in/chanti</a></p>
+      <p>GitHub: <a href="#">github.com/chanti-dev</a></p>
+      <form id="contactForm">
+        <label>Name:<input type="text" required></label>
+        <label>Email:<input type="email" required></label>
+        <label>Message:<textarea required></textarea></label>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li>🧠 ISL to Audio/Text Converter – Sign Language to Voice using Deep Learning</li>
+        <li>🚌 Smart Campus Transport – Real-time bus tracking, QR boarding, and AI route planning</li>
+        <li>🌾 Maan-Meal – Farmer-to-consumer food delivery e-commerce platform</li>
+        <li>🗳️ Biometric Voting System – Secure vote casting and duplicate prevention</li>
+        <li>📅 AI Timetable Optimizer – Energy-efficient scheduling for campuses</li>
+      </ul>
+      <iframe width="100%" height="300" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Project Demo" frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <ul>
+        <li><strong>Software Developer Intern – Bluestock:</strong> Built scalable software tools for internal automation.</li>
+        <li><strong>AI Intern – Elewayte Pvt Ltd:</strong> Developed gesture recognition pipelines and UI integrations.</li>
+        <li><strong>Remote Intern – IIITDM Hyderabad:</strong> CV + NLP integration for communication tech.</li>
+        <li><strong>Freelancer:</strong> Custom full-stack solutions for education and local business platforms.</li>
+      </ul>
+    </section>
+
+    <section id="achievements">
+      <h2>Achievements</h2>
+      <ul>
+        <li>🏅 Microsoft AI Certified</li>
+        <li>🏆 Finalist - Vashisht Hackathon</li>
+        <li>🎓 Excellence & stripend – Elewayte Internship</li>
+        <li>💼 Internship – Bluestock as SDE</li>
+        <li>📃 Published Research – AI for Timetable Optimization</li>
+      </ul>
+    </section>
+
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <img src="gallery1.jpg" alt="Project Screenshot">
+      <img src="gallery2.jpg" alt="Hackathon Certificate">
+      <img src="gallery3.jpg" alt="AI Certificate">
+    </section>
+
+    <section id="testimonials">
+      <h2>Testimonials</h2>
+      <blockquote>“Chanti is a problem-solver. His work on ISL translation helped us break barriers in accessibility.” – Elewayte Team</blockquote>
+      <blockquote>“He was quick to learn, quick to build, and focused on outcomes.” – Bluestock HR</blockquote>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Chanti. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+        <a href="#"><ion-icon name="logo-github"></ion-icon></a>
+        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    let menuToggle = document.querySelector('.toggle');
+    let menu = document.querySelector('.menu');
+    menuToggle.onclick = function () {
+      menu.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    };
+
+    const links = document.querySelectorAll('.menu li');
+    const sections = document.querySelectorAll('.content section');
+    links.forEach((item) => {
+      item.addEventListener('click', function () {
+        links.forEach((el) => el.classList.remove('active'));
+        item.classList.add('active');
+        const target = item.querySelector('a').dataset.section;
+        sections.forEach((sec) => {
+          sec.classList.remove('active-section');
+          if (sec.id === target) {
+            sec.classList.add('active-section');
+          }
+        });
+      });
+    });
+
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('change', function () {
+      document.body.classList.toggle('light-theme');
+    });
+
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Message sent successfully!");
+    });
+  </script>
+</body>
+</html>
